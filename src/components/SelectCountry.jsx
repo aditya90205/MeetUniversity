@@ -242,7 +242,7 @@ const SelectCountry = () => {
         </div>
       </div>
 
-      <div className="hidden md:block md:h-screen md:mt-14">
+      <div className="hidden md:block md:mt-36">
         {/* Course Section */}
         <div className="text-left mb-6">
           <h3 className="text-2xl font-semibold text-left mb-4">
