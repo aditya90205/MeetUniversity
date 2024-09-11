@@ -54,7 +54,7 @@ const SelectCountry = () => {
   };
   return (
     <div className="md:flex md:flex-row md:justify-evenly">
-      <div className="m-4 md:m-8">
+      <div className="m-4 md:pr-4 md:m-8 md:h-full">
         {/* Logo Section */}
         <div className="flex justify-center mb-6 md:hidden">
           <a href="https://www.meetuniversity.com/"><img src={logo} alt="MeetUniversity Logo" className="h-12" /></a>
@@ -242,7 +242,7 @@ const SelectCountry = () => {
         </div>
       </div>
 
-      <div className="hidden md:block md:mt-14">
+      <div className="hidden md:block md:h-screen md:mt-14">
         {/* Course Section */}
         <div className="text-left mb-6">
           <h3 className="text-2xl font-semibold text-left mb-4">

@@ -6,41 +6,6 @@ import cap from "../assets/cap.jpg";
 import axios from "axios";
 
 // Dropdown component
-// eslint-disable-next-line react/prop-types
-// const Dropdown = ({ label, options, setSelected }) => {
-//   const [open, setOpen] = useState(false);
-
-//   const handleOptionClick = (option) => {
-//     setSelected(option);
-//     setOpen(false);
-//   };
-
-//   return (
-//     <div className="relative">
-//       <div
-//         className="flex items-center border p-2 rounded-md cursor-pointer"
-//         onClick={() => setOpen(!open)}
-//       >
-//         <span className="flex-grow">{label}</span>
-//         <FaBars className="h-6 w-6 text-gray-500" />
-//       </div>
-//       {open && (
-//         <div className="absolute mt-1 w-full bg-white shadow-lg rounded-md z-10">
-//           {options.map((option) => (
-//             <div
-//               key={option}
-//               className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-//               onClick={() => handleOptionClick(option)}
-//             >
-//               {option}
-//             </div>
-//           ))}
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
 const Dropdown = ({ label, options, setSelected }) => {
   const [open, setOpen] = useState(false);
 
