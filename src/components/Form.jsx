@@ -387,7 +387,7 @@ const Form = () => {
               type="text"
               name="country"
               value={formData.country}
-              className="w-full p-2 border rounded-md bg-gray-100 cursor-not-allowed"
+              className="w-full p-2 border rounded-md bg-gray-100 cursor-not-allowed "
               readOnly
               placeholder="Selected Country"
             />
