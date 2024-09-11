@@ -57,12 +57,12 @@ const SelectCountry = () => {
       <div className="m-4 md:m-8">
         {/* Logo Section */}
         <div className="flex justify-center mb-6 md:hidden">
-          <img src={logo} alt="MeetUniversity Logo" className="h-12" />
+          <a href="https://www.meetuniversity.com/"><img src={logo} alt="MeetUniversity Logo" className="h-12" /></a>
         </div>
         <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md md:shadow-2xl">
           {/* Logo Section */}
           <div className="justify-center mb-6 hidden md:block">
-            <img src={logo} alt="MeetUniversity Logo" className="h-12" />
+            <a href="https://www.meetuniversity.com/"><img src={logo} alt="MeetUniversity Logo" className="h-12" /></a>
           </div>
           {/* Title Section */}
           <h2 className="text-xl font-semibold text-center md:text-left mb-4">
@@ -75,7 +75,7 @@ const SelectCountry = () => {
               <img
                 src={Frame1}
                 alt="Personalized University Selection"
-                className="w-6 h-6 bg-blue-200"
+                className="w-6 h-6 bg-blue-400 rounded"
               />
               <p>Personalized University Selection</p>
             </div>
@@ -83,19 +83,19 @@ const SelectCountry = () => {
               <img
                 src={Frame2}
                 alt="Application Assistance"
-                className="w-6 h-6 bg-blue-400"
+                className="w-6 h-6 bg-blue-400 rounded"
               />
               <p>Application Assistance</p>
             </div>
             <div className="flex items-center md:items-start space-x-3">
-              <img src={Frame3} alt="Visa Support" className="w-6 h-6" />
+              <img src={Frame3} alt="Visa Support" className="w-6 h-6 bg-blue-400 rounded" />
               <p>Visa Support</p>
             </div>
             <div className="flex items-center md:items-start space-x-3">
               <img
                 src={Frame4}
                 alt="Scholarship and Financial Aid Guidance"
-                className="w-6 h-6"
+                className="w-6 h-6 bg-blue-400 rounded"
               />
               <p>Scholarship and Financial Aid Guidance</p>
             </div>
@@ -103,7 +103,7 @@ const SelectCountry = () => {
               <img
                 src={Frame5}
                 alt="Pre-Departure and Post-Arrival Support"
-                className="w-6 h-6"
+                className="w-6 h-6 bg-blue-400 rounded"
               />
               <p>Pre-Departure and Post-Arrival Support</p>
             </div>
@@ -156,7 +156,7 @@ const SelectCountry = () => {
             {/* Enroll Button */}
             <div className="text-center mb-6">
               <button
-                className="bg-blue-500 text-white rounded-md px-6 py-2 whitespace-nowrap"
+                className="bg-blue-500 text-white rounded-md px-6 py-2 whitespace-nowrap mx-auto"
                 onClick={handleEnroll}
               >
                 Enroll Now

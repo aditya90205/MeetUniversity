@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { FaBars } from "react-icons/fa";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import cap from "../assets/cap.jpg";
+import axios from "axios";
 
 // Dropdown component
 // eslint-disable-next-line react/prop-types
@@ -50,9 +51,21 @@ const Form = () => {
     interestedCourse: "",
     city: "",
     funds: "",
+    country: "",
   });
 
   const [errors, setErrors] = useState({});
+
+  // Fetch the selected country from localStorage and update the form data
+  useEffect(() => {
+    const selectedCountry = localStorage.getItem("selectedCountry");
+    if (selectedCountry) {
+      setFormData((prevData) => ({
+        ...prevData,
+        country: selectedCountry,
+      }));
+    }
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -84,18 +97,31 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
+      const apiUrl = `https://app.meetuniversity.com/Api_new/landing_register_user/format/json?client_id=mu_internal&key=0a19a3edd791626cca1fe1a33f2f2dba&phone=${formData.phone}&name=${formData.name}&email=${formData.email}&src=0016`;
+      
+      axios
+        .get(apiUrl)
+        .then((response) => {
+          console.log("API Response:", response.data);
+          // Handle the API response, e.g., show success message or redirect
+        })
+        .catch((error) => {
+          console.error("API Error:", error);
+          // Handle the error, e.g., show error message
+        });
       console.log("Form submitted successfully", formData);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        lastCourse: "",
+        lastPercentage: "",
+        interestedCourse: "",
+        city: "",
+        funds: "",
+        country: formData.country,
+      });
     }
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      lastCourse: "",
-      lastPercentage: "",
-      interestedCourse: "",
-      city: "",
-      funds: "",
-    });
   };
 
   return (
@@ -159,7 +185,7 @@ const Form = () => {
           </div>
 
           {/* Last Course and Percentage */}
-          <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
               <input
                 type="text"
@@ -203,7 +229,7 @@ const Form = () => {
           </div>
 
           {/* City and Funds */}
-          <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="grid md:grid-cols-2 gap-4 mb-4">
             <div>
               <Dropdown
                 label={formData.city || "City"}
@@ -228,6 +254,18 @@ const Form = () => {
                 <p className="text-red-500 text-sm">{errors.funds}</p>
               )}
             </div>
+          </div>
+
+          {/* Country (Pre-selected and Read-only) */}
+          <div className="mb-4">
+            <input
+              type="text"
+              name="country"
+              value={formData.country}
+              className="w-full p-2 border rounded-md bg-gray-100 cursor-not-allowed"
+              readOnly
+              placeholder="Selected Country"
+            />
           </div>
 
           {/* Register Button */}
