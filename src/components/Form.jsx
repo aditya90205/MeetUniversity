@@ -7,6 +7,40 @@ import axios from "axios";
 
 // Dropdown component
 // eslint-disable-next-line react/prop-types
+// const Dropdown = ({ label, options, setSelected }) => {
+//   const [open, setOpen] = useState(false);
+
+//   const handleOptionClick = (option) => {
+//     setSelected(option);
+//     setOpen(false);
+//   };
+
+//   return (
+//     <div className="relative">
+//       <div
+//         className="flex items-center border p-2 rounded-md cursor-pointer"
+//         onClick={() => setOpen(!open)}
+//       >
+//         <span className="flex-grow">{label}</span>
+//         <FaBars className="h-6 w-6 text-gray-500" />
+//       </div>
+//       {open && (
+//         <div className="absolute mt-1 w-full bg-white shadow-lg rounded-md z-10">
+//           {options.map((option) => (
+//             <div
+//               key={option}
+//               className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+//               onClick={() => handleOptionClick(option)}
+//             >
+//               {option}
+//             </div>
+//           ))}
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
 const Dropdown = ({ label, options, setSelected }) => {
   const [open, setOpen] = useState(false);
 
@@ -25,7 +59,7 @@ const Dropdown = ({ label, options, setSelected }) => {
         <FaBars className="h-6 w-6 text-gray-500" />
       </div>
       {open && (
-        <div className="absolute mt-1 w-full bg-white shadow-lg rounded-md z-10">
+        <div className="absolute mt-1 w-full bg-white shadow-lg rounded-md z-10 max-h-48 overflow-y-auto">
           {options.map((option) => (
             <div
               key={option}
@@ -98,7 +132,7 @@ const Form = () => {
     e.preventDefault();
     if (validateForm()) {
       const apiUrl = `https://app.meetuniversity.com/Api_new/landing_register_user/format/json?client_id=mu_internal&key=0a19a3edd791626cca1fe1a33f2f2dba&phone=${formData.phone}&name=${formData.name}&email=${formData.email}&src=0016`;
-      
+
       axios
         .get(apiUrl)
         .then((response) => {
@@ -218,7 +252,60 @@ const Form = () => {
           <div className="mb-4">
             <Dropdown
               label={formData.interestedCourse || "Interested Course"}
-              options={["Course 1", "Course 2", "Course 3"]}
+              options={[
+                "Accountancy",
+                "Accounting & Finance",
+                "Agricultural Sciences",
+                "Animation",
+                "Applied Sciences",
+                "Architecture",
+                "BBA",
+                "Biology",
+                "Biomedical Science",
+                "Biotechnology",
+                "Business and Economics",
+                "Business and Entrepreneurship",
+                "Business and Finance",
+                "Business Management",
+                "Chemical Engineering",
+                "Civil Engineering",
+                "Computer Science",
+                "Computing",
+                "Criminology",
+                "Cyber Security",
+                "Data Science & Analytics",
+                "Digital Marketing",
+                "Earth Sciences",
+                "Economics",
+                "Electrical Engineering",
+                "Electrical-Electronics",
+                "Electronics & Communication",
+                "Energy Engineering",
+                "Engineering Management",
+                "Entrepreneurship",
+                "Fashion Design",
+                "Finance",
+                "Geology",
+                "Health Sciences",
+                "Hospitality Management",
+                "Information Technology",
+                "Interior Design",
+                "International Business",
+                "Journalism & Mass Communication",
+                "LLB",
+                "LLM",
+                "MBA",
+                "MBBS",
+                "Media Science",
+                "Oil & Gas / Petroleum Engineering",
+                "Pharmacy",
+                "Renewable Energy",
+                "Software Engineering",
+                "Sustainable Development",
+                "Textile Engineering",
+                "PHD",
+                "Others",
+              ]}
               setSelected={(value) =>
                 setFormData({ ...formData, interestedCourse: value })
               }
@@ -233,7 +320,45 @@ const Form = () => {
             <div>
               <Dropdown
                 label={formData.city || "City"}
-                options={["City 1", "City 2", "City 3"]}
+                options={[
+                  "Ahmedabad",
+                  "Amritsar",
+                  "Bangalore",
+                  "Bhubaneshwar",
+                  "Chandigarh",
+                  "Chennai",
+                  "Coimbatore",
+                  "Dehradun",
+                  "Delhi",
+                  "Delhi South",
+                  "Delhi West",
+                  "Faridabad",
+                  "Guntur",
+                  "Gurugram",
+                  "Guwahati",
+                  "Hyderabad",
+                  "Indore",
+                  "Jalandhar",
+                  "Jammu",
+                  "Kochi",
+                  "Kolkata",
+                  "Lucknow",
+                  "Ludhiana",
+                  "Moga",
+                  "Mumbai Churchgate",
+                  "Mumbai Dadar",
+                  "Mumbai Thane",
+                  "Mumbai Vashi",
+                  "Mumbai Bandra",
+                  "Noida",
+                  "Patiala",
+                  "Pune",
+                  "Surat",
+                  "Trivandrum",
+                  "Vadodara",
+                  "Vijayawada",
+                  "Vishakhapatnam",
+                ]}
                 setSelected={(value) =>
                   setFormData({ ...formData, city: value })
                 }
@@ -245,7 +370,7 @@ const Form = () => {
             <div>
               <Dropdown
                 label={formData.funds || "Funds"}
-                options={["$1000", "$2000", "$3000"]}
+                options={["Loan", "Self"]}
                 setSelected={(value) =>
                   setFormData({ ...formData, funds: value })
                 }

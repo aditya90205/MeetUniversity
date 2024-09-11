@@ -245,10 +245,10 @@ const SelectCountry = () => {
       <div className="hidden md:block md:mt-14">
         {/* Course Section */}
         <div className="text-left mb-6">
-          <h3 className="text-xl font-semibold text-left mb-4">
+          <h3 className="text-2xl font-semibold text-left mb-4">
             Choose your courses
           </h3>
-          <p className="text-sm text-gray-500 mt-2">
+          <p className="text-md mt-2">
             Detailed & easy to understand information about each course abroad
           </p>
           <div className="flex items-start  text-sm text-gray-500 my-2">
