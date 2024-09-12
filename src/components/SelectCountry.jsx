@@ -38,8 +38,12 @@ const SelectCountry = () => {
     { name: "Singapore", img: Singapore },
   ];
 
-  const handleCountrySelect = (country) => {
-    setSelectedCountry(country);
+  const handleCountrySelect = (countryName) => {
+    if (selectedCountry === countryName) {
+      setSelectedCountry(null); // Reset the selection
+    } else {
+      setSelectedCountry(countryName); // Set the selected country
+    }
   };
 
   const handleEnroll = () => {
@@ -127,29 +131,21 @@ const SelectCountry = () => {
 
               {/* Country Buttons */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {countries.map((country) => (
-                  <button
-                    key={country.name}
-                    className={`border rounded-md px-4 py-2 text-center w-full truncate ${
-                      selectedCountry && selectedCountry !== country.name
-                        ? "opacity-50 cursor-not-allowed"
-                        : ""
-                    }`}
-                    onClick={() => handleCountrySelect(country.name)}
-                    disabled={
-                      selectedCountry && selectedCountry !== country.name
-                    }
-                  >
-                    <div className="flex justify-center items-center space-x-3">
-                      <img
-                        src={country.img}
-                        alt={country.name}
-                        className="h-5"
-                      />
-                      <p>{country.name}</p>
-                    </div>
-                  </button>
-                ))}
+              {countries.map((country) => (
+              <button
+                key={country.name}
+                className={`border rounded-md px-4 py-2 text-center w-full truncate 
+                  ${selectedCountry === country.name ? "bg-gray-200" : ""}
+                  ${selectedCountry && selectedCountry !== country.name ? "opacity-50 cursor-not-allowed" : ""}`}
+                onClick={() => handleCountrySelect(country.name)}
+                disabled={selectedCountry && selectedCountry !== country.name}
+              >
+                <div className="flex justify-center items-center space-x-3">
+                  <img src={country.img} alt={country.name} className="h-5" />
+                  <p>{country.name}</p>
+                </div>
+              </button>
+            ))}
               </div>
             </div>
 
@@ -258,14 +254,13 @@ const SelectCountry = () => {
 
           {/* Country Buttons */}
           <div className="grid grid-cols-3 gap-3">
-            {countries.map((country) => (
+           
+          {countries.map((country) => (
               <button
                 key={country.name}
-                className={`border rounded-md px-4 py-2 text-center w-full truncate ${
-                  selectedCountry && selectedCountry !== country.name
-                    ? "opacity-50 cursor-not-allowed"
-                    : ""
-                }`}
+                className={`border rounded-md px-4 py-2 text-center w-full truncate 
+                  ${selectedCountry === country.name ? "bg-gray-200" : ""}
+                  ${selectedCountry && selectedCountry !== country.name ? "opacity-50 cursor-not-allowed" : ""}`}
                 onClick={() => handleCountrySelect(country.name)}
                 disabled={selectedCountry && selectedCountry !== country.name}
               >
