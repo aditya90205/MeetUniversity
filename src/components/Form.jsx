@@ -96,8 +96,7 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      const apiUrl = `https://app.meetuniversity.com/Api_new/landing_register_user/format/json?client_id=mu_internal&key=0a19a3edd791626cca1fe1a33f2f2dba&phone=${formData.phone}&name=${formData.name}&email=${formData.email}&src=0016`;
-
+      const apiUrl = `https://app.meetuniversity.com/Api_new/landing_register_user/format/json?client_id=mu_internal&key=0a19a3edd791626cca1fe1a33f2f2dba&phone=${formData.phone}&name=${formData.name}&email=${formData.email}&src=101`;
       axios
         .get(apiUrl)
         .then((response) => {
